@@ -27,8 +27,8 @@ void printArray(Insurance** arr, size_t n);
 
 double TotalCost(Insurance** arr, size_t n);
 
-Insurance* findExtreme(Insurance** arr, size_t n, bool(*predicate)(Insurance*, Insurance*));
+Insurance* findExtreme(Insurance** arr, size_t n, bool(*predicate)(Insurance&, Insurance&));
 
-bool LessThan(Insurance* a, Insurance* b);
+bool LessThan(Insurance& a, Insurance& b);
 
-bool GreaterThan(Insurance* a, Insurance* b);
+bool GreaterThan(Insurance& a, Insurance& b);

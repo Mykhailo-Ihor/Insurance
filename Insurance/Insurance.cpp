@@ -15,12 +15,12 @@ double Insurance::getPrice() const
 
 bool Insurance::operator < (const Insurance& other)
 {
-	return total_price < other.base_price;
+	return total_price < other.total_price;
 }
 
 bool Insurance::operator > (const Insurance& other)
 {
-	return total_price > other.base_price;
+	return total_price > other.total_price;
 }
 
 istream& operator>>(istream& is, Insurance& I)
@@ -72,22 +72,25 @@ double TotalCost(Insurance** arr, size_t n)
 	return result;
 }
 
-Insurance* findExtreme(Insurance** arr, size_t n, bool(*predicate)(Insurance*, Insurance*))
+Insurance* findExtreme(Insurance** arr, size_t n, bool(*predicate)(Insurance&, Insurance&))
 {
 	Insurance* extreme = arr[0];
 	for (size_t i = 1; i < n; ++i)
 	{
-		if (predicate(arr[i], extreme))
+		if (predicate(*arr[i], *extreme))
+		{
 			extreme = arr[i];
+		}
 	}
 	return extreme;
 }
 
-bool LessThan(Insurance* a , Insurance* b)
+
+bool LessThan(Insurance& a , Insurance& b)
 {
 	return a < b;
 }
-bool GreaterThan(Insurance* a, Insurance* b)
+bool GreaterThan(Insurance& a, Insurance& b)
 {
 	return a > b;
 }
