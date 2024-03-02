@@ -6,7 +6,7 @@ CarIns::CarIns(double E, double P)
 {
 	if (E < min_cap)
 	{
-		cout << "Can't create car insurance with engine capacity less than 1.1l, field is set to the default value\n";
+		cerr << "Can't create car insurance with engine capacity less than 1.1l, field is set to the default value\n";
 		eng_cap = 1.1;
 	}
 	else
@@ -15,7 +15,7 @@ CarIns::CarIns(double E, double P)
 	}
 	if (P < default_price)
 	{
-		cout << "Can't create car insurance with base price less then 1000, field is set to the default value\n";
+		cerr << "Can't create car insurance with base price less then 1000, field is set to the default value\n";
 		base_price = default_price;
 	}
 	else
@@ -39,7 +39,7 @@ void CarIns::readFrom(std::istream& is)
 	is >> cap >> price;
 	if (cap < min_cap)
 	{
-		cout << "Can't initialize car insurance with engine capacity less than 1.1l, field value is unchanged\n";
+		cerr << "Can't initialize car insurance with engine capacity less than 1.1l, field value is unchanged\n";
 	}
 	else
 	{
@@ -47,7 +47,7 @@ void CarIns::readFrom(std::istream& is)
 	}
 	if (price < default_price)
 	{
-		cout << "Can't initialize car insurance with base price less then 1000, field value is unchanged\n";
+		cerr << "Can't initialize car insurance with base price less then 1000, field value is unchanged\n";
 	}
 	else
 	{

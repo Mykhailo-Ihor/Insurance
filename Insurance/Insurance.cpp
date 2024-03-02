@@ -29,7 +29,7 @@ istream& operator>>(istream& is, Insurance& I)
 	return is;
 }
 
-Insurance** createArrayFromFile(string fileName, size_t& n)
+Insurance** createArrayFromFile(string fileName, size_t& n,size_t& cap)
 {
 	fstream fin(fileName);
 	fin >> n; fin.get();
@@ -40,15 +40,20 @@ Insurance** createArrayFromFile(string fileName, size_t& n)
 		fin >> type;
 		if (type == FamilyIns::FAMILY)
 		{
-			
-			arr[i] = new FamilyIns;
-			fin >> *arr[i];
+			arr[cap] = new FamilyIns;
+			fin >> *arr[cap]; 
+			++cap;
 		}
 		else if (type == CarIns::CAR )
 		{
-			
-			arr[i] = new CarIns;
-			fin >> *arr[i];
+			arr[cap] = new CarIns;
+			fin >> *arr[cap];
+			++cap;
+		}
+		else
+		{
+			string temp;
+			getline(fin, temp);
 		}
 	}
 	return arr;

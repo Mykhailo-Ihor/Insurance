@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <exception>
 class Insurance abstract
 {
 protected:
@@ -21,7 +22,7 @@ public:
 
 std::istream& operator >> (std::istream& is, Insurance& I);
 
-Insurance** createArrayFromFile(std::string fileName, size_t& n);
+Insurance** createArrayFromFile(std::string fileName, size_t& n,size_t& cap);
 
 void printArray(Insurance** arr, size_t n);
 

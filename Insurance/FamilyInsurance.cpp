@@ -5,7 +5,7 @@ FamilyIns::FamilyIns(int M, double P)
 {
 	if (M < min_size)
 	{
-		cout << "Cannot create family insuranse with family members less than 3, field is set to the default value\n";
+		cerr << "Cannot create family insuranse with family members less than 3, field is set to the default value\n";
 		members = 3;
 	}
 	else
@@ -14,7 +14,7 @@ FamilyIns::FamilyIns(int M, double P)
 	}
 	if (P < default_price)
 	{
-		cout << "Cannot create family insurance with base price less then 1000, field is set to the default value\n";
+		cerr << "Cannot create family insurance with base price less then 1000, field is set to the default value\n";
 		base_price = default_price;
 	}
 	else
@@ -38,7 +38,7 @@ void FamilyIns::readFrom(std::istream& is)
 	is >> mem >> price;
 	if (mem < min_size)
 	{
-		cout << "Can't initialize family insuranse with family members less than 3, field value is unchanged\n";
+		cerr << "Can't initialize family insuranse with family members less than 3, field value is unchanged\n";
 	}
 	else
 	{
@@ -46,7 +46,7 @@ void FamilyIns::readFrom(std::istream& is)
 	}
 	if (price < default_price)
 	{
-		cout << "Can't initialize family insurance with base price less then 1000, field value is unchanged\n";
+		cerr << "Can't initialize family insurance with base price less then 1000, field value is unchanged\n";
 	}
 	else
 	{
